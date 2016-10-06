@@ -1,0 +1,74 @@
+.TH enigma 1 "October 6, 2016" "version 0.0.1" "USER COMMANDS"
+.SH NAME
+enigma \- an ANSI/TERM Enigma machine simulator
+.SH SYNOPSIS
+.B enigma [\fIOPTIONS\fR]
+.SH DESCRIPTION
+It is an \fIEnigma machine\fR simulator for \fIANSI/TERM\fR environments. The simulator
+is based on \fIM3 Enigma\fR.
+
+.SH OPTIONS
+.TP
+\-\-reflector=\fIb\fR
+Indicates the used reflector.
+
+.TP
+\-\-l-rotor=\fIi\fR
+Specifies the chosen left rotor.
+
+.TP
+\-\-m-rotor=\fIii\fR
+Specifies the chosen middle rotor.
+
+.TP
+\-\-r-rotor=\fIiii\fR
+Specifies the chosen right rotor.
+
+.TP
+\-\-l-ring=\fI2\fR
+Specifies the ring offset of the left rotor.
+
+.TP
+\-\-m-ring=\fI2\fR
+Specifies the ring offset of the middle rotor.
+
+.TP
+\-\-r-ring=\fI2\fR
+Specifies the ring offset of the right rotor.
+
+.TP
+\-\-l-rotor-at=\fIA\fR
+Specifies the initial position of the left rotor.
+
+.TP
+\-\-m-rotor-at=\fIB\fR
+Specifies the initial position of the middle rotor.
+
+.TP
+\-\-r-rotor-at=\fIC\fR
+Specifies the initial position of the right rotor.
+
+.TP
+\-\-version
+Shows the application version.
+
+.TP
+\-\-help
+Shows the general help.
+
+.PP
+.SH EXIT STATUS
+If the execution succeeds enigma returns zero, otherwise non zero values will be returned.
+
+.PP
+.SH
+SEE ALSO
+.TP
+\fI/usr/local/share/enigma/doc\fR (or equivalent in your system)
+.PP
+.SH
+HOMEPAGE
+.TP
+https://github.com/rafael-santiago/ansiterm-enigma
+.SH AUTHOR
+Rafael Santiago <voidbrainvoid@gmail.com>

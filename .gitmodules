@@ -1,0 +1,6 @@
+[submodule "src/eel"]
+	path = src/eel
+	url = https://github.com/rafael-santiago/eel
+[submodule "src/accacia"]
+	path = src/accacia
+	url = https://github.com/rafael-santiago/accacia
