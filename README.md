@@ -1,11 +1,13 @@
-# ansiterm-enigma
+# ANSI/TERM Enigma
 
 ## What is this?
 
 It is an ``Enigma machine`` simulator for ``ANSI/TERM`` environments. The simulator
 is based on ``M3 Enigma``.
 
-Basically you got this simple interface:
+**WARNING**: This software is merely a *toy* do not use it to protect your data.
+
+Basically you have got this simple "term/geek" interface:
 
 ## How to clone it?
 
@@ -34,13 +36,13 @@ Being under the ``src`` sub-directory:
 monster@CraterLake:~/ansiter-enigma/src# hefesto --install
 ```
 
-It also installs a tiny ``man page`` that you can use as future command reference.
+It also installs a tiny ``man page`` that you can use as future command reference/cheat sheet.
 
-For uninstalling is ``hefesto --uninstall``.
+For uninstalling issues you should use ``hefesto --uninstall``.
 
 ## How to use it?
 
-For using this simulator you need to pass through command line seven mandatory options:
+You need to pass through command line seven mandatory options to this simulator:
 
 - The option ``--reflector`` to indicate the used reflector. It can be: ``b`` or ``c``.
 - The option ``--l-rotor`` to indicate what rotor to use on the left. It can be: ``i``, ``ii``, ``iii``, ``iv``, ``v``, ``vi``, ``vii`` or ``viii``.
