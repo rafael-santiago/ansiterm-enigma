@@ -1,1 +1,1 @@
---forgefiles=Forgefile.hsl --Forgefile-projects=enigma-ansiterm --obj-output-dir=o --bin-output-dir=bin
+--forgefiles=Forgefile.hsl --Forgefile-projects=ansiterm-enigma --obj-output-dir=o --bin-output-dir=bin

@@ -15,14 +15,14 @@ var cflags type list;
 var libraries type list;
 var ldflags type list;
 
-project enigma-ansiterm : toolset "gcc-c-app" : dependencies get_c_cpp_deps() : $sources,
+project ansiterm-enigma : toolset "gcc-c-app" : dependencies get_c_cpp_deps() : $sources,
                                                                                 $includes,
                                                                                 $cflags,
                                                                                 $libraries,
                                                                                 $ldflags,
                                                                                 "enigma";
 
-enigma-ansiterm.prologue() {
+ansiterm-enigma.prologue() {
     var exit_code type int;
     var oldcwd type string;
 
