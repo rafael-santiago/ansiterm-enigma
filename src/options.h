@@ -12,4 +12,6 @@ void set_argc_argv(int argc, char **argv);
 
 const char *get_option(const char *option, const char *default_value);
 
+int get_bool_option(const char *option, const int default_value);
+
 #endif

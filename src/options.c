@@ -40,3 +40,25 @@ const char *get_option(const char *option, const char *default_value) {
 
     return default_value;
 }
+
+int get_bool_option(const char *option, const int default_value) {
+    char opt[255] = "";
+    int a = 0;
+
+    if (option == NULL || g_argv == NULL) {
+        return default_value;
+    }
+
+    sprintf(opt, "--%s", option);
+
+    while (a < g_argc) {
+
+        if (strcmp(g_argv[a], opt) == 0) {
+            return 1;
+        }
+
+        a++;
+    }
+
+    return default_value;
+}
