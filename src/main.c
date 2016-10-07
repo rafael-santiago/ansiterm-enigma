@@ -7,7 +7,15 @@
  */
 #include "options.h"
 #include "enigma.h"
+#include <accacia.h>
 #include <stdio.h>
+#include <signal.h>
+
+static int g_aborted = 0;
+
+void sigint_watchdog(int signum) {
+    g_aborted = 1;
+}
 
 int version() {
     printf("enigma v0.0.1\n");
@@ -24,6 +32,8 @@ int help() {
 }
 
 int main(int argc, char **argv) {
+    int exit_code = 0;
+
     set_argc_argv(argc, argv);
 
     if (argc == 1 || get_bool_option("help", 0)) {
@@ -34,5 +44,15 @@ int main(int argc, char **argv) {
         return version();
     }
 
-    return enigma();
+    signal(SIGINT, sigint_watchdog);
+    signal(SIGTERM, sigint_watchdog);
+
+    exit_code = enigma(&g_aborted);
+
+    if (g_aborted) {
+        accacia_clrscr();
+        accacia_screennormalize();
+    }
+
+    return exit_code;
 }

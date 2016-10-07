@@ -8,6 +8,6 @@
 #ifndef ENIGMA_ANSITERM_ENIGMA_H
 #define ENIGMA_ANSITERM_ENIGMA_H 1
 
-int enigma();
+int enigma(const int *abort);
 
 #endif

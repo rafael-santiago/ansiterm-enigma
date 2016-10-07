@@ -123,7 +123,7 @@ static libeel_enigma_ctx *get_user_enigma_settings();
 
 libeel_enigma_ctx *get_user_enigma_settings();
 
-int enigma() {
+int enigma(const int *abort) {
     libeel_enigma_ctx *enigma = NULL;
     char k = 0;
     int ttr = -1;
@@ -169,7 +169,7 @@ int enigma() {
             ttr = -1;
         }
 
-    } while (k != 27);
+    } while (k != 27 && (abort == NULL || !*abort));
 
     libeel_del_enigma_ctx(enigma);
 
