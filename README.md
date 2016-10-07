@@ -16,7 +16,7 @@ Basically you have got this simple "term/geek" interface (link your viewer with 
 This repository has some submodules so the simplest way of clonning it is:
 
 ```
-monster@CraterLake:~/# git clone https://github.com/rafael-santiago/ansiterm-enigma --recursive
+monster@CraterLake:~# git clone https://github.com/rafael-santiago/ansiterm-enigma --recursive
 ```
 
 ## How to build it?
@@ -26,7 +26,7 @@ and working on your system for building this simulator, supposing that you clone
 you should proceed as follows:
 
 ```
-monster@CraterLake:~/# cd ansiterm-enigma/src
+monster@CraterLake:~# cd ansiterm-enigma/src
 monster@CraterLake:~/ansiterm-enigma/src# hefesto
 ```
 
@@ -35,7 +35,7 @@ monster@CraterLake:~/ansiterm-enigma/src# hefesto
 Being under the ``src`` sub-directory:
 
 ```
-monster@CraterLake:~/ansiter-enigma/src# hefesto --install
+monster@CraterLake:~/ansiterm-enigma/src# hefesto --install
 ```
 
 It also installs a tiny ``man page`` that you can use as future command reference/cheat sheet.
@@ -64,7 +64,7 @@ Also there are four optional settings:
 Follows an example:
 
 ```
-root@CraterLake:~/# enigma --reflector=c\
+monster@CraterLake:~# enigma --reflector=c\
 > --l-rotor=iv --l-rotor-at=y\
 > --m-rotor=vii --m-rotor-at=s\
 > --r-rotor=ii --r-rotor-at=z\
