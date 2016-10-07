@@ -7,7 +7,9 @@ is based on ``M3 Enigma``.
 
 **WARNING**: This software is merely a *toy* do not use it to protect your data.
 
-Basically you have got this simple "term/geek" interface:
+Basically you have got this simple "term/geek" interface (link your viewer with ``-limagination``):
+
+![Sample](https://github.com/rafael-santiago/ansiterm-enigma/blob/master/etc/sample.gif)
 
 ## How to clone it?
 
