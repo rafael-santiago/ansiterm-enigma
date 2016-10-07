@@ -70,3 +70,7 @@ root@CraterLake:~/# enigma --reflector=c\
 > --r-rotor=ii --r-rotor-at=z\
 > --plugboard=A/S,D/F,M/N,C/X
 ```
+
+You need to press ``ESC`` to exit.
+
+Enjoy!
