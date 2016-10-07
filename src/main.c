@@ -16,7 +16,7 @@ int version() {
 
 int help() {
     printf("usage: enigma --l-rotor=<rotor> --m-rotor=<rotor> --r-rotor=<rotor> --l-rotor-at=<pos> "
-           "--m-rotor-at=<pos> --r-rotor-at=<pos> [--l-ring=<offset> --m-ring=<offset> --r-ring=<offset>]\n\n"
+           "--m-rotor-at=<pos> --r-rotor-at=<pos> [--l-ring=<offset> --m-ring=<offset> --r-ring=<offset> --plugboard=<swap pairs>]\n\n"
            "*** This usage helping did not helped me: man enigma\n\n"
            "enigma is Copyright (C) 2006-2016 by Rafael Santiago.\n\n"
            "Bug reports, feedback, etc: <voidbrainvoid@gmail.com> or <https://github.com/rafael-santiago/ansiterm-enigma/issues>\n");

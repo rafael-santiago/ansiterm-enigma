@@ -52,11 +52,12 @@ You need to pass through command line seven mandatory options to this simulator:
 - The option ``--m-rotor-at`` to indicate the initial position of the ``m-rotor``. It can be a letter between ``A`` and ``Z``.
 - The option ``--r-rotor-at`` to indicate the initial position of the ``r-rotor``. It can be a letter between ``A`` and ``Z``.
 
-Also there are three optional settings:
+Also there are four optional settings:
 
 - The option ``--l-ring`` which specifies the ring offset of the left rotor. It can be a value between ``1`` and ``26``. The default is ``1``.
 - The option ``--m-ring`` which specifies the ring offset of the middle rotor. It can be a value between ``1`` and ``26``. The default is ``1``.
 - The option ``--r-ring`` which specifies the ring offset of the right rotor. It can be a value between ``1`` and ``26``. The default is ``1``.
+- The option ``--plugboard`` which can specifies until six swap pairs in form ``<letterX>/<letterY>,...,<letterX'>/<letterY'>``. No swaps are assumed by default.
 
 Follows an example:
 
@@ -64,5 +65,6 @@ Follows an example:
 root@CraterLake:~/# enigma --reflector=c\
 > --l-rotor=iv --l-rotor-at=y\
 > --m-rotor=vii --m-rotor-at=s\
-> --r-rotor=ii --r-rotor-at=z
+> --r-rotor=ii --r-rotor-at=z\
+> --plugboard=A/S,D/F,M/N,C/X
 ```

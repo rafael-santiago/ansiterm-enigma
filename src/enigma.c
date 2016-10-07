@@ -109,6 +109,8 @@ static libeel_rotor_t is_rotor(const char *number);
 
 static int is_number(const char *number);
 
+static int get_user_plugboard_setting(libeel_enigma_ctx *enigma, const char *plugboard);
+
 static libeel_enigma_ctx *get_user_enigma_settings();
 
 #define turn_on_lamp(l) ( set_lamp_state(l, 1) )
@@ -500,6 +502,72 @@ static libeel_reflector_t is_reflector(const char *data) {
     return -1;
 }
 
+static int get_user_plugboard_setting(libeel_enigma_ctx *enigma, const char *plugboard) {
+    const char *p = plugboard, *p_end = NULL;
+    int pi = 1;
+
+    if (p == NULL) {
+        return 1;
+    }
+
+    p_end = p + strlen(p);
+
+    while (p < p_end) {
+
+        while (*p == ',' || *p == ' ') {
+            p++;
+        }
+
+        if (*p == 0 || *(p + 1) == 0 || *(p + 2) == 0) {
+            return 0;
+        }
+
+        if (!isalpha(*p) || *(p + 1) != '/' || !isalpha(*(p + 2))) {
+            return 0;
+        }
+
+        switch (pi) {
+            case 1:
+                libeel_plugboard(enigma, 1).l = toupper(*p);
+                libeel_plugboard(enigma, 1).r = toupper(*(p + 2));
+                break;
+
+            case 2:
+                libeel_plugboard(enigma, 2).l = toupper(*p);
+                libeel_plugboard(enigma, 2).r = toupper(*(p + 2));
+                break;
+
+            case 3:
+                libeel_plugboard(enigma, 3).l = toupper(*p);
+                libeel_plugboard(enigma, 3).r = toupper(*(p + 2));
+                break;
+
+            case 4:
+                libeel_plugboard(enigma, 4).l = toupper(*p);
+                libeel_plugboard(enigma, 4).r = toupper(*(p + 2));
+                break;
+
+            case 5:
+                libeel_plugboard(enigma, 5).l = toupper(*p);
+                libeel_plugboard(enigma, 5).r = toupper(*(p + 2));
+                break;
+
+            case 6:
+                libeel_plugboard(enigma, 6).l = toupper(*p);
+                libeel_plugboard(enigma, 6).r = toupper(*(p + 2));
+                break;
+
+            default:
+                return 0;
+        }
+
+        p  += 3;
+        pi += 1;
+    }
+
+    return 1;
+}
+
 static libeel_enigma_ctx *get_user_enigma_settings() {
     libeel_enigma_ctx *enigma = NULL;
     const char *option = NULL;
@@ -555,7 +623,7 @@ static libeel_enigma_ctx *get_user_enigma_settings() {
         printf("ERROR: left rotor has invalid setting.\n");
         goto ___cleanup_and_null;
     } else {
-        libeel_rotor_at(enigma, l) = *option;
+        libeel_rotor_at(enigma, l) = toupper(*option);
     }
 
     option = get_option("m-rotor-at", NULL);
@@ -564,7 +632,7 @@ static libeel_enigma_ctx *get_user_enigma_settings() {
         printf("ERROR: middle rotor has invalid setting.\n");
         goto ___cleanup_and_null;
     } else {
-        libeel_rotor_at(enigma, m) = *option;
+        libeel_rotor_at(enigma, m) = toupper(*option);
     }
 
     option = get_option("r-rotor-at", NULL);
@@ -573,7 +641,7 @@ static libeel_enigma_ctx *get_user_enigma_settings() {
         printf("ERROR: right rotor has invalid setting.\n");
         goto ___cleanup_and_null;
     } else {
-        libeel_rotor_at(enigma, r) = *option;
+        libeel_rotor_at(enigma, r) = toupper(*option);
     }
 
     option = get_option("l-rotor", NULL);
@@ -594,6 +662,12 @@ static libeel_enigma_ctx *get_user_enigma_settings() {
 
     if ((enigma->right_rotor = is_rotor(option)) == -1) {
         printf("ERROR: r-rotor has an unknown setting.\n");
+        goto ___cleanup_and_null;
+    }
+
+    option = get_option("plugboard", NULL);
+    if (option != NULL && get_user_plugboard_setting(enigma, option) == 0) {
+        printf("ERROR: invalid plugboard setting.\n");
         goto ___cleanup_and_null;
     }
 
