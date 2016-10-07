@@ -6,6 +6,7 @@
 #
 #
 
+include Install.hsl
 include ~/toolsets/gcc/gcc-app.hsl
 include ~/toolsets/common/utils/lang/c/dependency_scanner.hsl
 
@@ -23,6 +24,9 @@ project ansiterm-enigma : toolset "gcc-c-app" : dependencies get_c_cpp_deps() : 
                                                                                 "enigma";
 
 ansiterm-enigma.prologue() {
+
+    ansiterm_enigma_installer();
+
     var exit_code type int;
     var oldcwd type string;
 

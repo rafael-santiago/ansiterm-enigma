@@ -1,0 +1,126 @@
+include ~/fsutil.hsl
+
+function ansiterm_enigma_installer() : result type none {
+    var option type list;
+
+    $option = hefesto.sys.get_option("install");
+
+    if ($option.count() > 0) {
+        hefesto.project.abort(install());
+    }
+
+    $option = hefesto.sys.get_option("uninstall");
+
+    if ($option.count() > 0) {
+        hefesto.project.abort(uninstall());
+    }
+}
+
+
+local function install() : result type int {
+
+    if (isfile("bin/enigma") == 0) {
+        var exit_code type int;
+        $exit_code = hefesto.sys.run("hefesto");
+        if ($exit_code != 0) {
+            result $exit_code;
+        }
+    }
+
+    if (isfile("/usr/local/bin/enigma")) {
+        var option type string;
+
+        $option = "?";
+        while ($option != "y" && $option != "n") {
+            $option = hefesto.sys.prompt("Do you want to overwrite the file \"/usr/local/bin/enigma\"? [y/n] ");
+        }
+
+        if ($option == "n") {
+            hefesto.sys.echo("WARN: Aborted.\n");
+            result 1;
+        }
+    }
+
+    var src_files type list;
+
+    $src_files.add_item("../doc/man/enigma.1");
+    $src_files.add_item("../README.md");
+    $src_files.add_item("bin/enigma");
+
+    var dst_dirs type list;
+
+    $dst_dirs.add_item("/usr/local/man/man1");
+    $dst_dirs.add_item("/usr/local/share/enigma/doc");
+    $dst_dirs.add_item("/usr/local/bin");
+
+    var dst_files type list;
+
+    $dst_files.add_item("enigma.1");
+    $dst_files.add_item("README.md");
+    $dst_files.add_item("enigma");
+
+    var f type int;
+    $f = 0;
+
+    while ($f < $src_files.count()) {
+        var dst_path type string;
+
+        $dst_path = $dst_dirs.item($f);
+
+        mktree($dst_path);
+
+        $dst_path = hefesto.sys.make_path($dst_path, $dst_files.item($f));
+
+        if (hefesto.sys.cp($src_files.item($f), $dst_path) != 1) {
+            hefesto.sys.echo("ERROR: during copying the file " + $src_files.item($f) + ".\n");
+            result 1;
+        }
+
+        $f = $f + 1;
+    }
+
+    hefesto.sys.echo("INFO: Installed!\n");
+
+    result 0;
+}
+
+local function uninstall() : result type int {
+
+    var burn_list type list;
+
+    $burn_list.add_item("/usr/local/man/man1/enigma.1");
+    $burn_list.add_item("/usr/local/share/enigma/doc/README.md");
+    $burn_list.add_item("/usr/local/share/enigma/doc");
+    $burn_list.add_item("/usr/local/share/enigma");
+    $burn_list.add_item("/usr/local/bin/enigma");
+
+    var b type int;
+
+    $b = 0;
+
+    while ($b < $burn_list.count()) {
+
+        var curr_trinket type string;
+
+        var return type int;
+
+        $curr_trinket = $burn_list.item($b);
+
+        if (isfile($curr_trinket)) {
+            $return = (hefesto.sys.rm($curr_trinket) == 0);
+        } else {
+            $return = (hefesto.sys.rmdir($curr_trinket) == 0);
+        }
+
+        if ($return != 1) {
+            hefesto.sys.echo("ERROR: during removing the file " + $curr_trinket + ".\n");
+            result 1;
+        }
+
+        $b = $b + 1;
+    }
+
+    hefesto.sys.echo("INFO: Uninstalled!\n");
+
+    result 0;
+}
