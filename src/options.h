@@ -5,8 +5,8 @@
  * the terms of the GNU General Public License version 2.
  *
  */
-#ifndef ENIGMA_ANSITERM_OPTIONS_H
-#define ENIGMA_ANSITERM_OPTIONS_H 1
+#ifndef ANSITERM_ENIGMA_OPTIONS_H
+#define ANSITERM_ENIGMA_OPTIONS_H 1
 
 void set_argc_argv(int argc, char **argv);
 

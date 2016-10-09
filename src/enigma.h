@@ -5,8 +5,8 @@
  * the terms of the GNU General Public License version 2.
  *
  */
-#ifndef ENIGMA_ANSITERM_ENIGMA_H
-#define ENIGMA_ANSITERM_ENIGMA_H 1
+#ifndef ANSITERM_ENIGMA_ENIGMA_H
+#define ANSITERM_ENIGMA_ENIGMA_H 1
 
 int enigma(const int *abort);
 

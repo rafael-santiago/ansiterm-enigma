@@ -42,6 +42,9 @@ It also installs a tiny ``man page`` that you can use as future command referenc
 
 For uninstalling issues you should use ``hefesto --uninstall``.
 
+**Tip**: if you are on ``FreeBSD`` maybe you should have installed a previous application also called "enigma", in this case
+in order to access this ``enigma`` simulator (after installing) you should explicitly call ``/usr/local/bin/enigma``.
+
 ## How to use it?
 
 You need to pass through command line seven mandatory options to this simulator:
