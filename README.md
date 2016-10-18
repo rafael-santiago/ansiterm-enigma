@@ -62,7 +62,7 @@ Also there are four optional settings:
 - The option ``--l-ring`` which specifies the ring offset of the left rotor. It can be a value between ``1`` and ``26``. The default is ``1``.
 - The option ``--m-ring`` which specifies the ring offset of the middle rotor. It can be a value between ``1`` and ``26``. The default is ``1``.
 - The option ``--r-ring`` which specifies the ring offset of the right rotor. It can be a value between ``1`` and ``26``. The default is ``1``.
-- The option ``--plugboard`` which can specifies until six swap pairs in form ``<letterX>/<letterY>,...,<letterX'>/<letterY'>``. No swaps are assumed by default.
+- The option ``--plugboard`` which can specifies until ten swap pairs in form ``<letterX>/<letterY>,...,<letterX'>/<letterY'>``. No swaps are assumed by default.
 
 Follows an example:
 

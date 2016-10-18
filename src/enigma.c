@@ -557,6 +557,26 @@ static int get_user_plugboard_setting(libeel_enigma_ctx *enigma, const char *plu
                 libeel_plugboard(enigma, 6).r = toupper(*(p + 2));
                 break;
 
+            case 7:
+                libeel_plugboard(enigma, 7).l = toupper(*p);
+                libeel_plugboard(enigma, 7).r = toupper(*(p + 2));
+                break;
+
+            case 8:
+                libeel_plugboard(enigma, 8).l = toupper(*p);
+                libeel_plugboard(enigma, 8).r = toupper(*(p + 2));
+                break;
+
+            case 9:
+                libeel_plugboard(enigma, 9).l = toupper(*p);
+                libeel_plugboard(enigma, 9).r = toupper(*(p + 2));
+                break;
+
+            case 10:
+                libeel_plugboard(enigma, 10).l = toupper(*p);
+                libeel_plugboard(enigma, 10).r = toupper(*(p + 2));
+                break;
+
             default:
                 return 0;
         }
